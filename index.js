@@ -2,6 +2,8 @@
 
 const url = require("url");
 const yargs = require("yargs");
+const locateChrome = require("locate-chrome");
+const pwx = require("./dist/main.js");
 
 yargs.command("* <url>", "Runs a PWA.", yargs => yargs.positional("url", {
     describe: "URL of the PWA, protocol irrelevant as https is enforced.",
@@ -9,4 +11,5 @@ yargs.command("* <url>", "Runs a PWA.", yargs => yargs.positional("url", {
     coerce: s => url.parse(s)
 }))
 
-require("./dist/main.js").main(yargs.argv);
+const f = l => pwx.main(yargs.argv, l);
+locateChrome(f).catch(() => f());

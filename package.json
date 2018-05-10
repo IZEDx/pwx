@@ -29,6 +29,7 @@
     "typescript": "^2.9.0-dev.20180509"
   },
   "dependencies": {
+    "locate-chrome": "^0.1.1",
     "puppeteer": "^1.4.0",
     "yargs": "^11.0.0"
   }
